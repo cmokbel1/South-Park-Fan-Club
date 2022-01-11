@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="dialog">
+    <div class="content">
+      <div class="header">
+        <h5 class="title">User Login</h5>
+      </div>
+      <div class="body">
+        <form>
+          <div class="mb-3">
+            <label for="username" class="form-label">username:</label>
+            <input type="text" name="lUsername" id="lUsername" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">password:</label>
+            <input type="password" name="lUsername" id="lPassword" class="form-control">
+          </div>
+        </form>
+      </div>
+      <div class="footer">
+        <button type="button" id="login" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+<h4>Don't have an account? Register below</h4>
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="signup">Sign Up</button>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  async function loginUser(user) {
+    try {
+      const data = await axios.post('/api/user/login', user)
+      return data
+    } catch (err) {
+      alert('Something Went Wrong. Please Try Again')
+    }
+  }
+  document.getElementById('signup').addEventListener('click', event => {
+    event.preventDefault()
+    location = '/register'
+  })
+  document.getElementById('login').addEventListener('click', async function (event) {
+    event.preventDefault()
+
+    const data = await loginUser({
+      username: document.getElementById('lUsername').value,
+      password: document.getElementById('lPassword').value
+    })
+
+    if (data.data.token) {
+      localStorage.setItem('username', data.data.username)
+      localStorage.setItem('token', data.data.token)
+      location = '/dashboard'
+    } else {
+      alert('Invalid Username or Password. Please Try Again.')
+    }
+  })
+</script>

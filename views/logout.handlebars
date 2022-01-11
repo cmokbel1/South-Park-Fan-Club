@@ -1,0 +1,11 @@
+<h1>{{username}} Logged Out</h1>
+<h3>Come Back Soon!</h3>
+
+<script>
+  function logOut() {
+    localStorage.removeItem('username')
+    localStorage.removeItem('token')
+    location = '/'
+  }
+  logOut();
+</script>

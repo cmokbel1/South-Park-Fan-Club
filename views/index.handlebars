@@ -1,0 +1,15 @@
+<p class="text-center"></p>
+Welcome to the Official South Park Fan Club!
+<ul class="list-group">
+  {{#each posts}}
+  <li class="list-group-item">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">
+        <a href="/post/{{id}}">{{title}}</a>
+      </div>
+      <sub>Posted by {{'User.username'}} and created on {{createdAt}}</sub>
+      <p>{{body}}</p>
+    </div>
+  </li>
+  {{/each}}
+</ul>
