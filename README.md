@@ -1,6 +1,6 @@
 
   # Tech Blog
- ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/cmokbel1/Tech-Blog)
+ ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/cmokbel1/South-Park-Fan-Club)
   ![NPM](https://img.shields.io/npm/l/full)
 
 
